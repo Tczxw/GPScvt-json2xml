@@ -25,8 +25,12 @@ public class htmlwriter {
         sb.append("\t<locality_name_zh_cn>" + ifm[4] + "</locality_name_zh_cn>\n");
         sb.append("\t<center_gps>" + ifm[5]+","+ifm[6] + "</center_gps>\n");
         sb.append("\t<boundaries>\n");
-        System.out.println(ifm[3]+" "+ac.get(ifm[3]));
-        sb.append(htmlreader.getHTMLword(name,ac.get(ifm[3]),ifm[3]));
+//        System.out.println(ifm[3]+" "+ac.get(ifm[4]));
+        Integer it = ac.get(ifm[4]);
+        if(it==null) it = ac.get(ifm[3]);
+        String ss = htmlreader.getHTMLword(name,it,ifm[4]);
+        if(ss.contains("not found")) ;
+        else sb.append(ss);
         sb.append("\t</boundaries>\n");
         sb.append("</area>\n");
     }
@@ -75,7 +79,7 @@ public class htmlwriter {
             String str = br.readLine();
             while (str != null) {
                 cnt++;
-//                if(cnt==4624) break;
+//                if(cnt==4624) break;x
 //                Scanner sc = new Scanner(System.in);
 //                str = sc.nextLine();
 //                System.out.println(str);

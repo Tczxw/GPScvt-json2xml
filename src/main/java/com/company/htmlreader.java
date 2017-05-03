@@ -16,7 +16,7 @@ public class htmlreader {
     private static String erStr = "{\"status\":\"2\",\"data\":\"Return Failure!\"}";
 
     public static String textFormat(String str) {
-        if (str.hashCode() == erStr.hashCode()) str = "not found!";
+        if (str.hashCode() == erStr.hashCode()) return str = "not found!";
         String prefix = "\"bounds\":\"";
         String endfix = "\",\"version\":\"";
         int idx = str.indexOf(prefix) + prefix.length();
@@ -126,6 +126,7 @@ public class htmlreader {
                         fww.write(place+" "+s+"\n");
                         fww.flush();
                         fww.close();
+//                        file.delete();
                     }
                     bw.write(str);
                     bufr.close();
@@ -144,6 +145,13 @@ public class htmlreader {
                 FileReader fr = new FileReader(file);
                 BufferedReader br = new BufferedReader(fr);
                 str = br.readLine();
+                if(str.indexOf("未找到")!=-1||str.equals("not found!")||str.indexOf("Return Failure!")!=-1) {
+//                    file.delete();
+                    FileWriter fww= new FileWriter("/home/zhou/target/index/no_found.txt",true);
+                    fww.write(place+" "+s+"\n");
+                    fww.flush();
+                    fww.close();
+                }
                 return textFormat(str);
             }
         } catch (IOException e) {

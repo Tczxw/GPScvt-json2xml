@@ -22,7 +22,7 @@ public class xmlReader {
 
 
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-        String path = "/home/zhou/target/output/"; //你遍历一下所有文件
+        String path = "/home/zhou/target/output/Tourist_attractions/"; //你遍历一下所有文件
         File filenew = new File(path);
         File[] crList = filenew.listFiles();
         for (int i = 0; i < crList.length; i++) {
