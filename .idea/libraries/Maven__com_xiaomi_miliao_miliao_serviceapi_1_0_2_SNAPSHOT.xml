@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.xiaomi.miliao:miliao-serviceapi:1.0.2-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/xiaomi/miliao/miliao-serviceapi/1.0.2-SNAPSHOT/miliao-serviceapi-1.0.2-20130910.025633-86.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/xiaomi/miliao/miliao-serviceapi/1.0.2-SNAPSHOT/miliao-serviceapi-1.0.2-20130910.025633-86-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/xiaomi/miliao/miliao-serviceapi/1.0.2-SNAPSHOT/miliao-serviceapi-1.0.2-20130910.025633-86-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

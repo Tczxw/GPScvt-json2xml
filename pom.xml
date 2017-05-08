@@ -483,6 +483,11 @@
             <groupId>com.xiaomi</groupId>
             <artifactId>xiaomi-common-utils</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.xiaomi</groupId>
+            <artifactId>DeviceSettingMidTier</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

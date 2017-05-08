@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.xiaomi:xiaomi-thrift-hotspots:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/xiaomi/xiaomi-thrift-hotspots/1.0-SNAPSHOT/xiaomi-thrift-hotspots-1.0-20130728.200829-1293.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/xiaomi/xiaomi-thrift-hotspots/1.0-SNAPSHOT/xiaomi-thrift-hotspots-1.0-20130728.200829-1293-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/xiaomi/xiaomi-thrift-hotspots/1.0-SNAPSHOT/xiaomi-thrift-hotspots-1.0-20130728.200829-1293-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

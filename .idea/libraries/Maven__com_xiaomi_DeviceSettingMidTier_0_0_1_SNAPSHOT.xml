@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.xiaomi:DeviceSettingMidTier:0.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/xiaomi/DeviceSettingMidTier/0.0.1-SNAPSHOT/DeviceSettingMidTier-0.0.1-20130705.115822-3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/xiaomi/DeviceSettingMidTier/0.0.1-SNAPSHOT/DeviceSettingMidTier-0.0.1-20130705.115822-3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/xiaomi/DeviceSettingMidTier/0.0.1-SNAPSHOT/DeviceSettingMidTier-0.0.1-20130705.115822-3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

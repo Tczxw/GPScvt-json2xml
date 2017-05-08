@@ -3,6 +3,8 @@ package com.company; /**
  */
 
 
+import java.util.Scanner;
+
 /**
  * 从网站找的坐标系转换公式
  *
@@ -49,6 +51,13 @@ public class GPSconverter {
         double lontitude = lon * 2 - GPS.getWgLon();
         double latitude = lat * 2 - GPS.getWgLat();
         return new GPS(latitude, lontitude);
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        double a = sc.nextDouble();
+        double b = sc.nextDouble();
+        GPS g = gcj_To_Gps84(b,a);
+        System.out.println(g.getWgLat()+" "+g.getWgLon());
     }
 
     private static GPS transform(double lat, double lon) {
