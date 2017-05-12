@@ -6,6 +6,7 @@ import org.w3c.dom.NodeList;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by jxh on 17-5-5.
@@ -83,6 +84,7 @@ public abstract class BasicLocationInfo {
         Validate.isTrue(ypoints[0] == ypoints[points.length - 1]);
         return new Polygon(xpoints, ypoints, xpoints.length);
     }
+
 
     public LocationInfo getLocationInfo() {
         return locationInfo;

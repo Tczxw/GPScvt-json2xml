@@ -20,11 +20,12 @@ public class NoFound {
                 System.out.println(str);
                 String[] s = str.split(" ");
                 String ss = fun(s[1]);
+                if(ss.length()<=4) {str = bw.readLine();continue;}
                 File file = new File("/home/zhou/target/GPS/Tour/" + s[0] + "_" + s[2] + "/" + s[1] + ".json");
                 if(file.exists()) {str = bw.readLine();continue;}
                 String word = htmlreader.getHT(ss, Integer.parseInt(s[0]));
-                if(word.contains("too fast")) System.out.println("too fast!");
-                if ((word.indexOf("未找到") != -1 && word.indexOf("帮您找x到") == -1) || word.equals("not found!") || word.indexOf("Return Failure!") != -1 ) {
+                if(word.contains("too fast")) {System.out.println("too fast!");Thread.sleep(2000);}
+                if ((word.indexOf("未找到") != -1 && word.indexOf("帮您找x到") == -1) || word.equals("not found!") || word.indexOf("Return Failure!") != -1 ||word.contains("too fast")) {
                     cnt++;
                     try {
                         Thread.sleep(1000);
@@ -46,6 +47,8 @@ public class NoFound {
             System.out.println(cnt);
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
@@ -62,15 +65,20 @@ public class NoFound {
         s = s.replace("公园", "");
         s = s.replace("名胜", "");
         s = s.replace("上海", "");
+        s = s.replace("北京", "");
+        s = s.replace("贵阳", "");
         s = s.replace("县博物馆", "博物馆");
         s = s.replace("市博物馆", "博物馆");
+        if(s.indexOf("·")!=-1) s = s.substring(0,s.indexOf("·"));
         if (s.indexOf("-") != -1) s = s.substring(0, s.indexOf("-"));
         if (s.indexOf("(") != -1) s = s.substring(0, s.indexOf("("));
         if(s.indexOf("省")!=-1) s = s.substring(s.indexOf("省")+1);
         if(s.indexOf("市")!=-1) s = s.substring(s.indexOf("市")+1);
         if(s.indexOf("县")!=-1) s = s.substring(s.indexOf("县")+1);
+        s.replace("纪念馆","");
+        if(s.length()>2)
+            s = s.substring(0,s.length()-4);
         System.out.println("s: " + s);
-//        s.replace("纪念馆","");
         return s;
     }
 }

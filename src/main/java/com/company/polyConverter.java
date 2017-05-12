@@ -23,10 +23,10 @@ public class polyConverter {
             String[] s = str[i].split(",");
             Double x = Double.parseDouble(s[0]);
             Double y = Double.parseDouble(s[1]);
-            GPSconverter.GPS g = GPSconverter.gcj_To_Gps84(x,y);
-            sb.append(convertCoordinateToInt(g.getWgLon()));
+            GPSconverter.GPS g = GPSconverter.gcj_To_Gps84(y,x);
+            sb.append(convertCoordinateToInt(g.getWgLat()));//weidu
             sb.append(",");
-            sb.append(convertCoordinateToInt(g.getWgLat()));
+            sb.append(convertCoordinateToInt(g.getWgLon()));//jindu
             sb.append(";");
         }
 //        System.out.println(sb);

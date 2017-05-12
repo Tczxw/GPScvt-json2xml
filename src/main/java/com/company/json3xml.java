@@ -47,8 +47,10 @@ public class json3xml {
                 sb.append("\t<country_id>1001</country_id>\n");
                 sb.append("\t<country_name_zh_cn>中国</country_name_zh_cn>\n");
                 sb.append("\t<admin_area_id>" + spname + "</admin_area_id>\n");
-                sb.append("\t<admin_area_name_zh_cn>" + fi.get(spname) + "</admin_area_name_zh_cn>\n");
+                sb.append("\t<admin_area_name_zh_cn>" + fi.get(spname).replace("特别行政区","") + "</admin_area_name_zh_cn>\n");
                 sb.append("\t<locality_id>" + name + "</locality_id>\n");
+                sename = sename.replace("市辖区","");
+                sename = sename.replace("特别行政区","");
                 sb.append("\t<locality_name_zh_cn>" + sename + "</locality_name_zh_cn>\n");
                 bf.write(sb.toString());
                 sb = new StringBuffer();

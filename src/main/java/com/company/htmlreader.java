@@ -60,8 +60,8 @@ public class htmlreader {
 
     private static boolean less1km(Polygon polygon, Point p, double area) {
         int n = polygon.npoints;
-        if (n == 0)
-            System.out.println("1231l3k1l2jlkljfdsaf");
+//        if (n == 0)
+//            System.out.println("1231l3k1l2jlkljfdsaf");
         boolean ok = false;
         if (area <= 1) area = 100000;
         for (int i = 0; i < n; i++) {
@@ -71,7 +71,7 @@ public class htmlreader {
                 ok = true;
             mmax = Math.max(mmax, tdis);
             ddis = Math.min(ddis, tdis);
-            System.out.println(tdis+" "+mmax+" "+ddis);
+//            System.out.println(tdis+" "+mmax+" "+ddis);
         }
         return ok;
     }
@@ -121,6 +121,7 @@ public class htmlreader {
                 if (impt.length != 4) System.out.println("impt error!");
                 else {
                     String a = impt[0], b = impt[1], c = impt[2], d = impt[3];
+                    System.out.println(a+" "+b);
                     GPSconverter.GPS g1 = GPSconverter.gcj_To_Gps84(Double.parseDouble(b), Double.parseDouble(a));
                     GPSconverter.GPS g2 = GPSconverter.gcj_To_Gps84(Double.parseDouble(d), Double.parseDouble(c));
                     b = String.valueOf(g1.getWgLon());
@@ -137,9 +138,9 @@ public class htmlreader {
                         find = true;
                     sp.append("\t<boundary flag=\"1\">" + kb.toString() + "</boundary>\n");
                     sb.append("\t<square_meters>" + String.format("%.4f", area / 10000) + "</square_meters>\n");
-                    sb.append("\t<extension_distance>" + String.format("%.4f", P.contains(po) ? 0 : ddis / 10) + "</extension_distance>\n");
+                    sb.append("\t<extension_distance>" + String.format("%.4f", P.contains(po) ? 0 : ddis) + "</extension_distance>\n");
                     if ((P.contains(po) ? 0 : ddis / 10) > 2000) htmlwriter.knum++;
-                    sb.append("\t<max_distance>" + String.format("%.4f", mmax/10) + "</max_distance>\n");
+                    sb.append("\t<max_distance>" + String.format("%.4f", mmax) + "</max_distance>\n");
                     sb.append("\t<boundaries>\n");
                     sb.append(sp.toString());
                 }
@@ -167,13 +168,13 @@ public class htmlreader {
                     sp.append("\t" + "<boundary flag=\"1\">" + spk.toString() + "</boundary>\n");
                 }
                 sb.append("\t<square_meters>" + String.format("%.4f", area / 10000) + "</square_meters>\n");
-                sb.append("\t<extension_distance>" + String.format("%.4f", inside ? 0 : ddis / 10) + "</extension_distance>\n");
+                sb.append("\t<extension_distance>" + String.format("%.4f", inside ? 0 : ddis) + "</extension_distance>\n");
                 if (Math.abs(ddis-mmax)<0.1) htmlwriter.knum++;
-                sb.append("\t<max_distance>" + String.format("%.4f", mmax/10) + "</max_distance>\n");
+                sb.append("\t<max_distance>" + String.format("%.4f", mmax) + "</max_distance>\n");
                 sb.append("\t<boundaries>\n");
                 sb.append(sp.toString());
             }
-            if (find == false && ddis > area / 100) sb.append("\t<error>This POI may be incorrect</error>\n");
+            if (find == false && ddis > area / 100) sb.append("\t<error>This POI may be incorrect</error>\n\t<boundaries>\n");
             str = sb.toString();
             return str;
         }
@@ -249,20 +250,33 @@ public class htmlreader {
         }
     }
 
-    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        String ss = sc.nextLine();
-        String ss = "恭王府";
+//    public static void main(String[] args) {
+////        Scanner sc = new Scanner(System.in);
+////        String ss = sc.nextLine();
+//        String ss = "恭王府";
+//
+////        int city = sc.nextInt();
+//        int city = 110000;
+//        HashSet<String> s = new HashSet<>();
+//        for (int i = 0; i < 100; i++) {
+//            String kk = LitextFormat(getHT(ss, city));
+//            System.out.println(kk);
+//            s.add(kk);
+//        }
+//        System.out.println(s.size());
+//
+//
+//
+//
+//    }
 
-//        int city = sc.nextInt();
-        int city = 110000;
-        HashSet<String> s = new HashSet<>();
-        for (int i = 0; i < 100; i++) {
-            String kk = LitextFormat(getHT(ss, city));
-            System.out.println(kk);
-            s.add(kk);
-        }
-        System.out.println(s.size());
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String ss = sc.nextLine();
+        Polygon k = parsePolygonFromString(ss);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        k.contains(a,b);
     }
 
     public static String toUtf8String(String s) {
